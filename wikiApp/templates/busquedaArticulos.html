@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %} Buscar artículos {% endblock %}
+
+{% block content %}
+<h1>Resultados de la búsqueda: </h1>
+<div>
+  <p>Buscando: <strong>{{ query }}</strong></p>
+  
+  {% if resultados %}
+    <ul>
+      {% for articulo in resultados %}
+      <li>
+        <a href="{% url 'wikiApp:articulo' articulo.id %}">{{ articulo.titulo }}</a>
+      </li>
+      {% endfor %}
+  </ul>
+  {% else %}
+    <p>No se encontraron artículos que coincidan con tu búsqueda.</p>
+  {% endif %}
+</div>
+{% endblock %}

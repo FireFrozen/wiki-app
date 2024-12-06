@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ articulo.titulo }} {% endblock %}
+
+{% block content %}
+<h1> {{ articulo.titulo }}</h1>
+<div>
+  <p> <strong>Tema:</strong> {{ articulo.temaRelacionado.nombre }}</p>
+  <div>
+    <p><strong>Contenido:</strong></p>
+    <p>{{ articulo.contenido }}</p>
+  </div>
+</div>
+{% endblock %}

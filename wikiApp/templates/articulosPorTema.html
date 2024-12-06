@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}Artículos de {{ tema.nombre }} {% endblock %}
+
+{% block content %}
+<h1>Artículos relacionados con el tema: {{ tema.nombre }}</h1>
+<div>
+  <ul>
+    {% for articulo in articulos %}
+    <li>
+      <a href="{% url 'wikiApp:articulo' articulo.id %}">{{ articulo.titulo }}</a>
+    </li>
+    {% empty %}
+    <p>No hay artículos relacionados con este tema.</p>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
